@@ -1,4 +1,4 @@
-package com.good.food_payment;
+package com.goodfood.payment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
