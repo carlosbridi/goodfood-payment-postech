@@ -1,21 +1,11 @@
 package com.good.food_payment.usecase;
 
-import org.springframework.stereotype.Component;
+import java.math.BigDecimal;
 
-import com.good.food_payment.gateways.PagamentoGateway;
+import com.good.food_payment.domain.Pagamento;
 
-import lombok.RequiredArgsConstructor;
+public interface PersistirPagamento {
 
-@Component
-@RequiredArgsConstructor
-public class PersistirPagamento {
-
-	private final PagamentoGateway pagamentoGateway;
-	
-	public void execute() {
-		
-		//Validate, persist after
-		pagamentoGateway.save(null);
-	}
+	Pagamento execute(String idPedido, BigDecimal valor, String qrCode);
 	
 }

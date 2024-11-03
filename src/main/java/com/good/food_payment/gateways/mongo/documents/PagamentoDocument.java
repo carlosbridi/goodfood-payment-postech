@@ -1,8 +1,10 @@
 package com.good.food_payment.gateways.mongo.documents;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.good.food_payment.domain.Pagamento;
@@ -16,22 +18,30 @@ import lombok.NoArgsConstructor;
 public class PagamentoDocument {
 
 	@Id private String id;
-	
-	private String numeroPedido;
-	
+	private String qrCode;
+	@Indexed
+	private String idPedido;	
 	private BigDecimal valor;
+	private LocalDateTime dataPagamento;
+	private LocalDateTime criadoEm;
 	
 	public PagamentoDocument(final Pagamento pagamento) {
 		this.id = pagamento.getId();
-		this.numeroPedido = pagamento.getNumeroPedido();
+		this.idPedido = pagamento.getIdPedido();
 		this.valor = pagamento.getValor();
+		this.qrCode = pagamento.getQrCode();
+		this.dataPagamento = pagamento.getDataPagamento();
+		this.criadoEm = LocalDateTime.now();
 	}
 	
 	public Pagamento toDomain() {
 		return Pagamento.builder()
 			.id(id)
-			.numeroPedido(numeroPedido)
+			.qrCode(qrCode)
+			.dataPagamento(dataPagamento)
+			.idPedido(idPedido)
 			.valor(valor)
+			.criadoEm(criadoEm)
 		.build();
 	}
 }

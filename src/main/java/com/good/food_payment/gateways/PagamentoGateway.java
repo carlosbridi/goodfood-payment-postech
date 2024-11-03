@@ -6,4 +6,6 @@ public interface PagamentoGateway {
 
 	Pagamento save(final Pagamento pagamento);
 	
+	Pagamento obterPagamento(final String idPedido);
+	
 }

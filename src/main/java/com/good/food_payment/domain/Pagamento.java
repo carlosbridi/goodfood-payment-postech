@@ -1,7 +1,9 @@
 package com.good.food_payment.domain;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
@@ -10,7 +12,10 @@ import lombok.Data;
 public class Pagamento {
 
 	private String id;
-	private String numeroPedido;
+	private String idPedido;
 	private BigDecimal valor;
-	
+	private String qrCode;
+	private LocalDateTime dataPagamento;
+	private LocalDateTime criadoEm;
+
 }
