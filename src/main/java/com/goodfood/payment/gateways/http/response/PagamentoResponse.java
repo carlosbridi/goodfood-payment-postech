@@ -1,7 +1,7 @@
-package com.good.food_payment.gateways.http.response;
+package com.goodfood.payment.gateways.http.response;
 
 import java.math.BigDecimal;
-import com.good.food_payment.domain.Pagamento;
+import com.goodfood.payment.domain.Pagamento;
 import lombok.Data;
 
 @Data

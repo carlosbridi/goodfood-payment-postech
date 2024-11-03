@@ -1,4 +1,4 @@
-package com.good.food_payment.config.mongo;
+package com.goodfood.payment.config.mongo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import com.goodfood.payment.usecase.GerarQRCodeImpl;
+import com.goodfood.payment.usecase.PersistirPagamentoImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GerarQRCodeImplTest {

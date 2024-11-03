@@ -1,4 +1,4 @@
-package com.good.food_payment.usecase;
+package com.goodfood.payment.usecase;
 
 import java.math.BigDecimal;
 import java.util.UUID;

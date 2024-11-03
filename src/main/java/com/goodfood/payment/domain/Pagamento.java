@@ -1,4 +1,4 @@
-package com.good.food_payment.domain;
+package com.goodfood.payment.domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

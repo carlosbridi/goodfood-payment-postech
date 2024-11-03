@@ -1,4 +1,4 @@
-package com.good.food_payment.gateways.http;
+package com.goodfood.payment.gateways.http;
 
 import java.math.BigDecimal;
 import org.springframework.http.HttpStatus;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import com.good.food_payment.gateways.http.response.PagamentoResponse;
-import com.good.food_payment.usecase.GerarQRCode;
-import com.good.food_payment.usecase.ObterPagamento;
+import com.goodfood.payment.gateways.http.response.PagamentoResponse;
+import com.goodfood.payment.usecase.GerarQRCode;
+import com.goodfood.payment.usecase.ObterPagamento;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;

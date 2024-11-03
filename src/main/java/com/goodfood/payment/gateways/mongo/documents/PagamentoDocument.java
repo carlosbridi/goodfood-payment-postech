@@ -1,4 +1,4 @@
-package com.good.food_payment.gateways.mongo.documents;
+package com.goodfood.payment.gateways.mongo.documents;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -6,9 +6,7 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import com.good.food_payment.domain.Pagamento;
-
+import com.goodfood.payment.domain.Pagamento;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
