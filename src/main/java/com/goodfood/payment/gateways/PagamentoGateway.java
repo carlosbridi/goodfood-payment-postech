@@ -1,6 +1,6 @@
-package com.good.food_payment.gateways;
+package com.goodfood.payment.gateways;
 
-import com.good.food_payment.domain.Pagamento;
+import com.goodfood.payment.domain.Pagamento;
 
 public interface PagamentoGateway {
 

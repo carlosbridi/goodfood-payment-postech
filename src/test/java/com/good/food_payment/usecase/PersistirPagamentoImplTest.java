@@ -11,8 +11,9 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import com.good.food_payment.domain.Pagamento;
-import com.good.food_payment.gateways.PagamentoGateway;
+import com.goodfood.payment.domain.Pagamento;
+import com.goodfood.payment.gateways.PagamentoGateway;
+import com.goodfood.payment.usecase.PersistirPagamentoImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PersistirPagamentoImplTest {

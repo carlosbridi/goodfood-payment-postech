@@ -1,8 +1,8 @@
-package com.good.food_payment.gateways.mongo.repositories;
+package com.goodfood.payment.gateways.mongo.repositories;
 
 import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import com.good.food_payment.gateways.mongo.documents.PagamentoDocument;
+import com.goodfood.payment.gateways.mongo.documents.PagamentoDocument;
 
 public interface PagamentoRepository extends MongoRepository<PagamentoDocument, String> {
 

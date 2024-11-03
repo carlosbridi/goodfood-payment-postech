@@ -1,8 +1,8 @@
-package com.good.food_payment.usecase;
+package com.goodfood.payment.usecase;
 
 import org.springframework.stereotype.Component;
-import com.good.food_payment.domain.Pagamento;
-import com.good.food_payment.gateways.PagamentoGateway;
+import com.goodfood.payment.domain.Pagamento;
+import com.goodfood.payment.gateways.PagamentoGateway;
 import lombok.RequiredArgsConstructor;
 
 @Component

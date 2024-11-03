@@ -1,8 +1,7 @@
-package com.good.food_payment.usecase;
+package com.goodfood.payment.usecase;
 
 import java.math.BigDecimal;
-
-import com.good.food_payment.domain.Pagamento;
+import com.goodfood.payment.domain.Pagamento;
 
 public interface PersistirPagamento {
 

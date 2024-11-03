@@ -9,10 +9,10 @@
 		<version>3.3.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.good</groupId>
-	<artifactId>food-payment</artifactId>
+	<groupId>com.goodfood</groupId>
+	<artifactId>payment</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>food-payment</name>
+	<name>payment</name>
 	<description>Goodfood Payment</description>
 	<url />
 	<licenses>

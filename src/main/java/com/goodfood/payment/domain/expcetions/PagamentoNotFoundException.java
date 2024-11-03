@@ -1,4 +1,4 @@
-package com.good.food_payment.domain.expcetions;
+package com.goodfood.payment.domain.expcetions;
 
 public class PagamentoNotFoundException extends RuntimeException {
 

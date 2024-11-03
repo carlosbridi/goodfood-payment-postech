@@ -1,14 +1,12 @@
-package com.good.food_payment.gateways.mongo;
+package com.goodfood.payment.gateways.mongo;
 
 import java.util.Optional;
 import org.springframework.stereotype.Component;
-
-import com.good.food_payment.domain.Pagamento;
-import com.good.food_payment.domain.expcetions.PagamentoNotFoundException;
-import com.good.food_payment.gateways.PagamentoGateway;
-import com.good.food_payment.gateways.mongo.documents.PagamentoDocument;
-import com.good.food_payment.gateways.mongo.repositories.PagamentoRepository;
-
+import com.goodfood.payment.domain.Pagamento;
+import com.goodfood.payment.domain.expcetions.PagamentoNotFoundException;
+import com.goodfood.payment.gateways.PagamentoGateway;
+import com.goodfood.payment.gateways.mongo.documents.PagamentoDocument;
+import com.goodfood.payment.gateways.mongo.repositories.PagamentoRepository;
 import lombok.RequiredArgsConstructor;
 
 @Component
