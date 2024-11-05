@@ -37,7 +37,7 @@ public class PagamentoController {
       @ApiImplicitParam(name = "idPedido", value = "Identificador do pedido", required = true,
           dataType = "string", paramType = "body"),
       @ApiImplicitParam(name = "valorPedido", value = "Valor do pedido", required = true,
-          dataType = "double", paramType = "body")})
+          dataType = "bigDecimal", paramType = "body")})
   public ResponseEntity<String> generateQRCode(@RequestParam String idPedido,
       @RequestParam BigDecimal valor) {
     return ResponseEntity.ok(gerarQRCode.execute(idPedido, valor));
