@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.convert.MongoConverter;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableMongoRepositories(basePackages = {"com.good.food_payment.gateways.mongo"})
+@EnableMongoRepositories(basePackages = {"com.goodfood.payment.gateways.mongo"})
 public class MongoDatabaseConfiguration {
 
 	@Bean
