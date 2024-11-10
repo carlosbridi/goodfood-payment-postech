@@ -21,9 +21,9 @@ import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("payment")
+@RequestMapping("pagamento")
 @RequiredArgsConstructor
-@Api(value = "/payment", produces = MediaType.APPLICATION_JSON_VALUE)
+@Api(value = "/pagamento", produces = MediaType.APPLICATION_JSON_VALUE)
 public class PagamentoController {
 
   private final GerarQRCode gerarQRCode;
@@ -38,9 +38,9 @@ public class PagamentoController {
           dataType = "string", paramType = "body"),
       @ApiImplicitParam(name = "valorPedido", value = "Valor do pedido", required = true,
           dataType = "bigDecimal", paramType = "body")})
-  public ResponseEntity<String> generateQRCode(@RequestParam String idPedido,
-      @RequestParam BigDecimal valor) {
-    return ResponseEntity.ok(gerarQRCode.execute(idPedido, valor));
+  public ResponseEntity<String> gerarQRCode(@RequestParam String idPedido,
+                                            @RequestParam BigDecimal valor) {
+    return ResponseEntity.ok(gerarQRCode.executar(idPedido, valor));
   }
 
   @ApiResponses(value = {@ApiResponse(code = 200, message = "Ok"),

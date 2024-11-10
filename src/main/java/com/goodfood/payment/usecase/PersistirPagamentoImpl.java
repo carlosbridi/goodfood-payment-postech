@@ -14,8 +14,8 @@ public class PersistirPagamentoImpl implements PersistirPagamento {
 	private final PagamentoGateway pagamentoGateway;
 
 	@Override
-	public Pagamento execute(String idPedido, BigDecimal valor, String qrCode) {
-		return pagamentoGateway.save(Pagamento.builder()
+	public Pagamento executar(String idPedido, BigDecimal valor, String qrCode) {
+		return pagamentoGateway.salvar(Pagamento.builder()
 		    .idPedido(idPedido)
 		    .valor(valor)
 		    .qrCode(qrCode)

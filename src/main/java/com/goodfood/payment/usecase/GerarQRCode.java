@@ -4,6 +4,6 @@ import java.math.BigDecimal;
 
 public interface GerarQRCode {
 
-	String execute(String numeroPedido, BigDecimal valorPedido);
+	String executar(String numeroPedido, BigDecimal valorPedido);
 	
 }

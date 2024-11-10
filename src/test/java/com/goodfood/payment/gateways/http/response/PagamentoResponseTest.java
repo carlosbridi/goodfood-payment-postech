@@ -12,7 +12,7 @@ import com.goodfood.payment.domain.Pagamento;
 class PagamentoResponseTest {
 
     @Test
-    void shouldCreatePagamentoResponseFromDomain() {
+    void deveCriarPagamentoResponseAPartirDoDominio() {
         Pagamento pagamento = Pagamento.builder()
                 .idPedido("idPedido")
                 .qrCode("qrCode")

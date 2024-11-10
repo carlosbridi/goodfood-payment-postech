@@ -14,7 +14,7 @@ import com.goodfood.payment.domain.Pagamento;
 class PagamentoDocumentTest {
 
     @Test
-    void shouldConvertToDomain() {
+    void deveConverterParaDominio() {
         PagamentoDocument document = new PagamentoDocument();
         document.setId("id");
         document.setQrCode("qrCode");
@@ -35,7 +35,7 @@ class PagamentoDocumentTest {
     }
 
     @Test
-    void shouldCreateDocumentFromDomain() {
+    void deveCriarDocumentoAPartirDoDominio() {
         Pagamento pagamento = Pagamento.builder().id("id").qrCode("qrCode").idPedido("idPedido").valor(BigDecimal.TEN).dataPagamento(LocalDateTime.now()).criadoEm(LocalDateTime.now()).build();
 
         PagamentoDocument document = new PagamentoDocument(pagamento);
@@ -50,7 +50,7 @@ class PagamentoDocumentTest {
     }
 
     @Test
-    void shouldHandleNullValuesInDomainConversion() {
+    void deveTratarValoresNulosNaConversaoDeDominio() {
         PagamentoDocument document = new PagamentoDocument();
 
         Pagamento pagamento = document.toDomain();
