@@ -1,4 +1,4 @@
-package com.good.food_payment.usecase;
+package com.goodfood.payment.usecase;
 
 import static org.mockito.Mockito.verify;
 
