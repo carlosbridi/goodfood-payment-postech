@@ -29,7 +29,7 @@ public class PagamentoDocument {
 		this.valor = pagamento.getValor();
 		this.qrCode = pagamento.getQrCode();
 		this.dataPagamento = pagamento.getDataPagamento();
-		this.criadoEm = LocalDateTime.now();
+		this.criadoEm = pagamento.getCriadoEm();
 	}
 	
 	public Pagamento toDomain() {
