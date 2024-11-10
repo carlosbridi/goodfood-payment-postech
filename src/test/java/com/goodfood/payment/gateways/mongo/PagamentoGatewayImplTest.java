@@ -15,7 +15,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.goodfood.payment.domain.Pagamento;
-import com.goodfood.payment.domain.expcetions.PagamentoNotFoundException;
+import com.goodfood.payment.domain.expcetions.PagamentoNaoEncontradoException;
 import com.goodfood.payment.gateways.mongo.documents.PagamentoDocument;
 import com.goodfood.payment.gateways.mongo.repositories.PagamentoRepository;
 
@@ -29,7 +29,7 @@ class PagamentoGatewayImplTest {
     private PagamentoRepository pagamentoRepository;
 
     @Test
-    void shouldSavePagamentoSuccessfully() {
+    void deveSalvarPagamentoComSucesso() {
         Pagamento pagamento = Pagamento.builder()
                 .idPedido("idPedido")
                 .qrCode("qrCode")
@@ -38,7 +38,7 @@ class PagamentoGatewayImplTest {
         PagamentoDocument document = new PagamentoDocument(pagamento);
         when(pagamentoRepository.save(document)).thenReturn(document);
 
-        Pagamento savedPagamento = pagamentoGateway.save(pagamento);
+        Pagamento savedPagamento = pagamentoGateway.salvar(pagamento);
 
         assertNotNull(savedPagamento);
         assertEquals(pagamento.getIdPedido(), savedPagamento.getIdPedido());
@@ -47,7 +47,7 @@ class PagamentoGatewayImplTest {
     }
 
     @Test
-    void shouldObterPagamentoSuccessfully() {
+    void deveObterPagamentoComSucesso() {
         String idPedido = "idPedido";
         PagamentoDocument document = new PagamentoDocument();
         document.setIdPedido(idPedido);
@@ -60,10 +60,10 @@ class PagamentoGatewayImplTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenPagamentoNotFound() {
+    void deveLancarExcecaoQuandoPagamentoNaoForEncontrado() {
         String idPedido = "idPedido";
         when(pagamentoRepository.findByIdPedido(idPedido)).thenReturn(Optional.empty());
 
-        assertThrows(PagamentoNotFoundException.class, () -> pagamentoGateway.obterPagamento(idPedido));
+        assertThrows(PagamentoNaoEncontradoException.class, () -> pagamentoGateway.obterPagamento(idPedido));
     }
 }

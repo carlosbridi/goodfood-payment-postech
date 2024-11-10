@@ -12,7 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.goodfood.payment.domain.Pagamento;
-import com.goodfood.payment.domain.expcetions.PagamentoNotFoundException;
+import com.goodfood.payment.domain.expcetions.PagamentoNaoEncontradoException;
 import com.goodfood.payment.gateways.PagamentoGateway;
 
 @ExtendWith(MockitoExtension.class)
@@ -25,7 +25,7 @@ class ObterPagamentoImplTest {
     private PagamentoGateway pagamentoGateway;
 
     @Test
-    void shouldReturnPaymentWhenIdIsValid() {
+    void deveRetornarPagamentoQuandoIdForValido() {
         String idPedido = "validId";
         Pagamento expectedPagamento = Pagamento.builder().build();
         when(pagamentoGateway.obterPagamento(idPedido)).thenReturn(expectedPagamento);
@@ -37,10 +37,10 @@ class ObterPagamentoImplTest {
     }
 
     @Test
-    void shouldReturnNullWhenPaymentNotFound() {
+    void deveRetornarNuloQuandoPagamentoNaoForEncontrado() {
         String idPedido = "nonExistentId";
-        when(pagamentoGateway.obterPagamento(idPedido)).thenThrow(new PagamentoNotFoundException("Pagamento não encontrado!"));
+        when(pagamentoGateway.obterPagamento(idPedido)).thenThrow(new PagamentoNaoEncontradoException("Pagamento não encontrado!"));
 
-        assertThrows(PagamentoNotFoundException.class, () -> provider.obterPagamento(idPedido));
+        assertThrows(PagamentoNaoEncontradoException.class, () -> provider.obterPagamento(idPedido));
     }
 }

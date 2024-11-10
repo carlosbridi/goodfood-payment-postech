@@ -32,13 +32,13 @@ class PagamentoControllerTest {
     private ObterPagamento obterPagamento;
 
     @Test
-    void shouldGenerateQRCodeSuccessfully() {
+    void deveGerarQRCodeComSucesso() {
         String idPedido = "idPedidoUUID";
         BigDecimal valorPedido = BigDecimal.valueOf(127.5);
         String expectedQRCode = "expectedQRCode";
-        when(gerarQRCode.execute(idPedido, valorPedido)).thenReturn(expectedQRCode);
+        when(gerarQRCode.executar(idPedido, valorPedido)).thenReturn(expectedQRCode);
 
-        ResponseEntity<String> response = pagamentoController.generateQRCode(idPedido, valorPedido);
+        ResponseEntity<String> response = pagamentoController.gerarQRCode(idPedido, valorPedido);
 
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -46,7 +46,7 @@ class PagamentoControllerTest {
     }
 
     @Test
-    void shouldReturnPagamentoResponseSuccessfully() {
+    void deveRetornarPagamentoResponseComSucesso() {
         String idPedido = "idPedidoUUID";
         final Pagamento pagamento = Pagamento.builder().idPedido(idPedido).qrCode("qrCode").valor(BigDecimal.TEN).build();
         PagamentoResponse expectedResponse = new PagamentoResponse(pagamento);

@@ -22,16 +22,16 @@ public class GerarQRCodeImplTest {
   private PersistirPagamentoImpl persistirPagamento;
 
   @Test
-  public void shouldGenerateQRCode() {
+  public void deveGerarQRCode() {
 
     String idPedido = "idPedidoUUID";
     BigDecimal valorPedido = BigDecimal.valueOf(127.5);
-    String qrCode = provider.execute(idPedido, valorPedido);
+    String qrCode = provider.executar(idPedido, valorPedido);
 
     assertNotNull(qrCode);
     assertTrue(qrCode.endsWith("BR.GOV.BCB.PIX2572pix-qr.mercadopago.com/instore/o/v2/idPedidoUUID5204127.553039865802BR5925Grupo 63 6009SAO PAULO62070503***6304B61D"));
 
-    verify(persistirPagamento).execute(idPedido, valorPedido, qrCode);
+    verify(persistirPagamento).executar(idPedido, valorPedido, qrCode);
   }
 
 }

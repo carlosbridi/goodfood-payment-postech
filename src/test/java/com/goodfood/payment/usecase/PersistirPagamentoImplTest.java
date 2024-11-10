@@ -28,17 +28,17 @@ public class PersistirPagamentoImplTest {
   private PagamentoGateway pagamentoGateway;
 
   @Test
-  public void shouldPersistPayment() {
+  public void devePersistirPagamento() {
 
     final String idPedido = UUID.randomUUID().toString();
     final BigDecimal valor = new BigDecimal(10.23d);
     final String qrCode = "qrCodeMP";
     final Pagamento p = Pagamento.builder().idPedido(idPedido).valor(valor).qrCode(qrCode).build();
-    when(pagamentoGateway.save(any())).thenReturn(p);
+    when(pagamentoGateway.salvar(any())).thenReturn(p);
 
-    final Pagamento pagamento = provider.execute(idPedido, valor, qrCode);
+    final Pagamento pagamento = provider.executar(idPedido, valor, qrCode);
 
-    verify(pagamentoGateway).save(any());
+    verify(pagamentoGateway).salvar(any());
     assertNotNull(pagamento);
     assertEquals(idPedido, pagamento.getIdPedido());
     assertEquals(valor, pagamento.getValor());
