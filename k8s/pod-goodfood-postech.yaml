@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: goodfood-payment
+  labels:
+    app: goodfood-payment-postech
+spec:
+  selector:
+    matchLabels:
+      app: goodfood-payment-postech
+  template:
+    metadata:
+      labels:
+        app: goodfood-payment-postech
+    spec:
+      containers:
+      - name: goodfood-payment-postech
+        image: bridicarlos/goodfood-payment:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "280m"
+          limits:
+            cpu: "500m" 
+        env:
+        - name: DATABASE_HOST
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: DATABASE_HOST
+        - name: SERVER_PORT
+          value: "8080"
+        - name: DATABASE_PORT
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: DATABASE_PORT
+        - name: DATABASE_NAME
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: DATABASE_NAME
+        - name: DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: DATABASE_USER
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: DATABASE_PASSWORD             
