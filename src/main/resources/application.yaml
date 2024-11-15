@@ -1,3 +1,6 @@
+server:
+  port: 8082
+
 springdoc:
   api-docs:
     path: /api-docs
@@ -6,11 +9,7 @@ springdoc:
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: food_payment
+      uri: mongodb+srv://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}/${DATABASE_NAME}?retryWrites=true&w=majority
   application:
     name: Good Food Payment Service
-server:
-  port: 8080
 

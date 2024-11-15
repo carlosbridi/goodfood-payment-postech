@@ -9,6 +9,6 @@ RUN mvn clean package -DskipTests=true
 
 FROM openjdk:17-jdk-alpine
 
-COPY --from=build app/target/food-payment-0.0.1-SNAPSHOT.jar goodfood-payment.jar
+COPY --from=build app/target/payment-0.0.1-SNAPSHOT.jar goodfood-payment.jar
 
 ENTRYPOINT ["java","-jar","/goodfood-payment.jar"]
