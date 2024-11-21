@@ -13,7 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
+import com.goodfood.payment.domain.EStatusPagamentoPedido;
 import com.goodfood.payment.domain.Pagamento;
 import com.goodfood.payment.gateways.http.response.PagamentoResponse;
 import com.goodfood.payment.usecase.GerarQRCode;
@@ -48,7 +48,7 @@ class PagamentoControllerTest {
     @Test
     void deveRetornarPagamentoResponseComSucesso() {
         String idPedido = "idPedidoUUID";
-        final Pagamento pagamento = Pagamento.builder().idPedido(idPedido).qrCode("qrCode").valor(BigDecimal.TEN).build();
+        final Pagamento pagamento = Pagamento.builder().idPedido(idPedido).statusPagamento(EStatusPagamentoPedido.PENDENTE).qrCode("qrCode").valor(BigDecimal.TEN).build();
         PagamentoResponse expectedResponse = new PagamentoResponse(pagamento);
         when(obterPagamento.obterPagamento(idPedido)).thenReturn(pagamento);
 

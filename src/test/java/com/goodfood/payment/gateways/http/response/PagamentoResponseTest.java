@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.math.BigDecimal;
 
 import org.junit.jupiter.api.Test;
-
+import com.goodfood.payment.domain.EStatusPagamentoPedido;
 import com.goodfood.payment.domain.Pagamento;
 
 class PagamentoResponseTest {
@@ -17,6 +17,7 @@ class PagamentoResponseTest {
                 .idPedido("idPedido")
                 .qrCode("qrCode")
                 .valor(BigDecimal.TEN)
+                .statusPagamento(EStatusPagamentoPedido.PENDENTE)
                 .build();
 
         PagamentoResponse response = new PagamentoResponse(pagamento);

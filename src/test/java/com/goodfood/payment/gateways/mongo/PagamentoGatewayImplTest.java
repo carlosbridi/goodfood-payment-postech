@@ -13,7 +13,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
+import com.goodfood.payment.domain.EStatusPagamentoPedido;
 import com.goodfood.payment.domain.Pagamento;
 import com.goodfood.payment.domain.expcetions.PagamentoNaoEncontradoException;
 import com.goodfood.payment.gateways.mongo.documents.PagamentoDocument;
@@ -34,6 +34,8 @@ class PagamentoGatewayImplTest {
                 .idPedido("idPedido")
                 .qrCode("qrCode")
                 .valor(BigDecimal.TEN)
+                .statusPagamento(EStatusPagamentoPedido.PENDENTE)
+
                 .build();
         PagamentoDocument document = new PagamentoDocument(pagamento);
         when(pagamentoRepository.save(document)).thenReturn(document);
