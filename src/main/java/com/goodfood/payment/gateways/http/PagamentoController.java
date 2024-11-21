@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import com.goodfood.payment.domain.EStatusPagamentoPedido;
 import com.goodfood.payment.gateways.http.response.PagamentoResponse;
+import com.goodfood.payment.usecase.AlterarStatusPagamento;
 import com.goodfood.payment.usecase.GerarQRCode;
 import com.goodfood.payment.usecase.ObterPagamento;
 import io.swagger.annotations.Api;
@@ -29,6 +31,7 @@ public class PagamentoController {
 
   private final GerarQRCode gerarQRCode;
   private final ObterPagamento obterPagamento;
+  private final AlterarStatusPagamento alterarStatusPagamento;
 
   @ApiResponses(value = {@ApiResponse(code = 200, message = "Ok"),
       @ApiResponse(code = 201, message = "Created")})
@@ -54,5 +57,23 @@ public class PagamentoController {
   public ResponseEntity<PagamentoResponse> obterPagamento(@PathVariable String idPedido) {
     return ResponseEntity.ok(new PagamentoResponse(obterPagamento.obterPagamento(idPedido)));
   }
+  
+  @ApiResponses(value = {@ApiResponse(code = 200, message = "Ok"),
+      @ApiResponse(code = 201, message = "alterarStatusPagamento")})
+  @ResponseStatus(code = HttpStatus.CREATED)
+  @PostMapping(path = "/{idPedido}")
+  @ApiImplicitParams({
+      @ApiImplicitParam(name = "idPedido", value = "Identificador do pedido", required = true,
+          dataType = "string", paramType = "body"),
+      @ApiImplicitParam(name = "statusPagamento", value = "Status pagamento", required = true,
+          paramType = "body")})
+  public ResponseEntity<String> alterarStatus(@PathVariable String idPedido,
+                                            @RequestParam EStatusPagamentoPedido statusPagamento) {
+    alterarStatusPagamento.executar(idPedido, statusPagamento);
+    
+    return ResponseEntity.ok().build();
+  }
+  
+  
   
 }
