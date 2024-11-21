@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,12 +47,12 @@ public class PagamentoController {
   @ApiResponses(value = {@ApiResponse(code = 200, message = "Ok"),
       @ApiResponse(code = 201, message = "Ok")})
   @ResponseStatus(code = HttpStatus.OK)
-  @GetMapping
+  @GetMapping(path = "/{idPedido}")
   @ApiImplicitParams({
       @ApiImplicitParam(name = "idPedido", value = "Identificador do pedido", required = true,
           dataType = "string", paramType = "body")})
-  public ResponseEntity<PagamentoResponse> obterPagamento(@RequestParam String idPedido) {
+  public ResponseEntity<PagamentoResponse> obterPagamento(@PathVariable String idPedido) {
     return ResponseEntity.ok(new PagamentoResponse(obterPagamento.obterPagamento(idPedido)));
   }
-
+  
 }
