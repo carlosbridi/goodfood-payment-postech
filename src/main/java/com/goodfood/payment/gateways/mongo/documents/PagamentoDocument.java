@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+import com.goodfood.payment.domain.EStatusPagamentoPedido;
 import com.goodfood.payment.domain.Pagamento;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class PagamentoDocument {
 	@Indexed
 	private String idPedido;	
 	private BigDecimal valor;
+	private String statusPagamento;
 	private LocalDateTime dataPagamento;
 	private LocalDateTime criadoEm;
 	
@@ -28,6 +30,7 @@ public class PagamentoDocument {
 		this.idPedido = pagamento.getIdPedido();
 		this.valor = pagamento.getValor();
 		this.qrCode = pagamento.getQrCode();
+		this.statusPagamento = pagamento.getStatusPagamento().name;
 		this.dataPagamento = pagamento.getDataPagamento();
 		this.criadoEm = pagamento.getCriadoEm();
 	}
@@ -37,6 +40,7 @@ public class PagamentoDocument {
 			.id(id)
 			.qrCode(qrCode)
 			.dataPagamento(dataPagamento)
+			.statusPagamento(EStatusPagamentoPedido.getByName(statusPagamento))
 			.idPedido(idPedido)
 			.valor(valor)
 			.criadoEm(criadoEm)

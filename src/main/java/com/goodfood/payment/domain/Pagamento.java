@@ -15,6 +15,7 @@ public class Pagamento {
 	private String idPedido;
 	private BigDecimal valor;
 	private String qrCode;
+	private EStatusPagamentoPedido statusPagamento;
 	private LocalDateTime dataPagamento;
 	private LocalDateTime criadoEm;
 

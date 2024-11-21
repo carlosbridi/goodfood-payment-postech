@@ -9,7 +9,8 @@ springdoc:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://${DATABASE_USER}:${DATABASE_PASSWORD}@${DATABASE_HOST}/${DATABASE_NAME}?retryWrites=true&w=majority
+      #uri: mongodb+srv://${DATABASE_USER:admin}:${DATABASE_PASSWORD:admin}@${DATABASE_HOST:localhost}/${DATABASE_NAME:payment}?retryWrites=true&w=majority
+      uri: mongodb://localhost:27017/food-payment
   application:
     name: Good Food Payment Service
 

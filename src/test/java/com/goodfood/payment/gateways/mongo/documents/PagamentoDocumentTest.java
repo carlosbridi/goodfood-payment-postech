@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.Test;
-
+import com.goodfood.payment.domain.EStatusPagamentoPedido;
 import com.goodfood.payment.domain.Pagamento;
 
 class PagamentoDocumentTest {
@@ -36,7 +36,9 @@ class PagamentoDocumentTest {
 
     @Test
     void deveCriarDocumentoAPartirDoDominio() {
-        Pagamento pagamento = Pagamento.builder().id("id").qrCode("qrCode").idPedido("idPedido").valor(BigDecimal.TEN).dataPagamento(LocalDateTime.now()).criadoEm(LocalDateTime.now()).build();
+        Pagamento pagamento = Pagamento.builder().id("id")
+            .statusPagamento(EStatusPagamentoPedido.PENDENTE)
+            .qrCode("qrCode").idPedido("idPedido").valor(BigDecimal.TEN).dataPagamento(LocalDateTime.now()).criadoEm(LocalDateTime.now()).build();
 
         PagamentoDocument document = new PagamentoDocument(pagamento);
 
