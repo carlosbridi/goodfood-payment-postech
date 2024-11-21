@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
+import com.goodfood.payment.domain.EStatusPagamentoPedido;
 import com.goodfood.payment.domain.Pagamento;
 import com.goodfood.payment.gateways.PagamentoGateway;
 
@@ -33,7 +33,11 @@ public class PersistirPagamentoImplTest {
     final String idPedido = UUID.randomUUID().toString();
     final BigDecimal valor = new BigDecimal(10.23d);
     final String qrCode = "qrCodeMP";
-    final Pagamento p = Pagamento.builder().idPedido(idPedido).valor(valor).qrCode(qrCode).build();
+    final Pagamento p = Pagamento.builder()
+        .idPedido(idPedido)
+        .valor(valor).qrCode(qrCode)
+        .statusPagamento(EStatusPagamentoPedido.PAGO)
+        .build();
     when(pagamentoGateway.salvar(any())).thenReturn(p);
 
     final Pagamento pagamento = provider.executar(idPedido, valor, qrCode);
@@ -41,6 +45,7 @@ public class PersistirPagamentoImplTest {
     verify(pagamentoGateway).salvar(any());
     assertNotNull(pagamento);
     assertEquals(idPedido, pagamento.getIdPedido());
+    assertEquals(EStatusPagamentoPedido.PAGO, pagamento.getStatusPagamento());
     assertEquals(valor, pagamento.getValor());
     assertEquals(qrCode, pagamento.getQrCode());
 

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.goodfood.payment.domain.EStatusPagamentoPedido;
+import com.goodfood.payment.domain.Pagamento;
 import com.goodfood.payment.gateways.http.response.PagamentoResponse;
 import com.goodfood.payment.usecase.AlterarStatusPagamento;
 import com.goodfood.payment.usecase.GerarQRCode;
@@ -67,13 +68,11 @@ public class PagamentoController {
           dataType = "string", paramType = "body"),
       @ApiImplicitParam(name = "statusPagamento", value = "Status pagamento", required = true,
           paramType = "body")})
-  public ResponseEntity<String> alterarStatus(@PathVariable String idPedido,
+  public ResponseEntity<PagamentoResponse> alterarStatus(@PathVariable String idPedido,
                                             @RequestParam EStatusPagamentoPedido statusPagamento) {
-    alterarStatusPagamento.executar(idPedido, statusPagamento);
+    Pagamento pagamentoAtualizado = alterarStatusPagamento.executar(idPedido, statusPagamento);
     
-    return ResponseEntity.ok().build();
+    return ResponseEntity.ok( new PagamentoResponse(pagamentoAtualizado));
   }
-  
-  
   
 }

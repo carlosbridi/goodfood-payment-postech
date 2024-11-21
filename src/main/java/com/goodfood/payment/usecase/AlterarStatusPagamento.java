@@ -1,9 +1,10 @@
 package com.goodfood.payment.usecase;
 
 import com.goodfood.payment.domain.EStatusPagamentoPedido;
+import com.goodfood.payment.domain.Pagamento;
 
 public interface AlterarStatusPagamento {
 
-  void executar(String idPedido, EStatusPagamentoPedido status);
+  Pagamento executar(String idPedido, EStatusPagamentoPedido status);
   
 }

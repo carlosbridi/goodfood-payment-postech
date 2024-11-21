@@ -10,17 +10,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AlterarStatusPagamentoImpl implements AlterarStatusPagamento {
   
-  
   private final PagamentoGateway pagamentoGateway;
   
   @Override
-  public void executar(String idPedido, EStatusPagamentoPedido status) {
+  public Pagamento executar(String idPedido, EStatusPagamentoPedido status) {
     Pagamento pagamento = pagamentoGateway.obterPagamento(idPedido);
     
     pagamento.setStatusPagamento(status);
-    pagamentoGateway.salvar(pagamento);
-    
-    
+    return pagamentoGateway.salvar(pagamento);
   }
 
 }
