@@ -1,4 +1,4 @@
-package com.test.java.com.goodfood.payment.gateways.mongo;
+package com.goodfood.payment.gateways.mongo;
 
 import com.goodfood.payment.domain.EStatusPagamentoPedido;
 import com.goodfood.payment.domain.Pagamento;

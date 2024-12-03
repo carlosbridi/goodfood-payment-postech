@@ -1,4 +1,4 @@
-package com.test.java.com.goodfood.payment.usecase;
+package com.goodfood.payment.usecase;
 
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

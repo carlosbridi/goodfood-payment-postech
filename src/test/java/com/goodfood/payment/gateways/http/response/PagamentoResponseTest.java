@@ -1,4 +1,4 @@
-package com.test.java.com.goodfood.payment.gateways.http.response;
+package com.goodfood.payment.gateways.http.response;
 
 import com.goodfood.payment.domain.EStatusPagamentoPedido;
 import com.goodfood.payment.domain.Pagamento;

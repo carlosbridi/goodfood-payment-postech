@@ -1,4 +1,4 @@
-package com.test.java.com.goodfood.payment.usecase;
+package com.goodfood.payment.usecase;
 
 import com.goodfood.payment.domain.Pagamento;
 import com.goodfood.payment.domain.expcetions.PagamentoNaoEncontradoException;
