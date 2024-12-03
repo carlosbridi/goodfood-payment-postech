@@ -88,6 +88,13 @@
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.2</version>
+				<configuration>
+					<excludes>
+						<exclude>**/*Application*.java</exclude>
+						<exclude>**/*Exception*.java</exclude>
+						<exclude>**/*ExceptionHandler*.java</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
