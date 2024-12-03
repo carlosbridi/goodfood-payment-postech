@@ -40,9 +40,5 @@ public class AlterarStatusPagamentoImplTest {
     provider.executar("123", EStatusPagamentoPedido.PAGO);
     
     assertEquals(EStatusPagamentoPedido.PAGO, pagamentoCapture.getValue().getStatusPagamento());
-    
-    
   }
-  
-
 }
