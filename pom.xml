@@ -93,6 +93,7 @@
 						<exclude>**/*Application*.java</exclude>
 						<exclude>**/*Exception*.java</exclude>
 						<exclude>**/*ExceptionHandler*.java</exclude>
+						<exclude>**/*DatabaseConfiguration*.java</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
