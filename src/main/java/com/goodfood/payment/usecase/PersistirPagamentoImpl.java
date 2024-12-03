@@ -23,6 +23,4 @@ public class PersistirPagamentoImpl implements PersistirPagamento {
 		    .qrCode(qrCode)
 		  .build());		
 	}
-	
-	
 }
